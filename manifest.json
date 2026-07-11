@@ -1,6 +1,6 @@
 {
-  "name": "dayka_net",
-  "short_name": "dayka_net",
+  "name": "Dayka_net",
+  "short_name": "Dayka_net",
   "start_url": "acceso.html",
   "scope": ".",
   "display": "standalone",
