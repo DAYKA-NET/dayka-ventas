@@ -601,7 +601,7 @@ function verificarCodigoSitio(){
   }).then(function(){
     btn.disabled = false;
     btn.textContent = "Entrar ✓";
-    try{ localStorage.setItem(SITE_LOCK_KEY, "1"); }catch(e){}
+    try{ localStorage.setItem(SITE_LOCK_KEY, "1"); localStorage.setItem("dayka_codigo_dispositivo", v); }catch(e){}
     document.getElementById("siteLock").style.display = "none";
     iniciarAppControl();
   }).catch(function(e){
@@ -1106,7 +1106,17 @@ function iniciarAppControl(){
   pintarNegocio();
   verificarBloqueo();
   render();
+  registrarUltimaVisita();
 }
+function registrarUltimaVisita(){
+  try{
+    const codigo = localStorage.getItem("dayka_codigo_dispositivo");
+    if(codigo){
+      dbDayka.ref("asignaciones/" + codigo).update({ultima_visita: new Date().toISOString()}).catch(function(){});
+    }
+  }catch(e){}
+}
+
 if(siteYaDesbloqueado()){
   document.getElementById("siteLock").style.display = "none";
   iniciarAppControl();

@@ -219,7 +219,7 @@ function verificarCodigoSitio(){
   }).then(function(){
     btn.disabled = false;
     btn.textContent = "Entrar ✓";
-    try{ localStorage.setItem(SITE_LOCK_KEY, "1"); }catch(e){}
+    try{ localStorage.setItem(SITE_LOCK_KEY, "1"); localStorage.setItem("dayka_codigo_dispositivo", v); }catch(e){}
     mostrarContenido();
   }).catch(function(e){
     btn.disabled = false;

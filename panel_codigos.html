@@ -63,6 +63,7 @@
   .badge.disp{background:var(--green-soft);color:var(--green);}
   .badge.usado{background:var(--amber-soft);color:var(--amber);}
   .meta{font-size:.72rem;color:var(--ink-soft);margin-top:4px;}
+  .meta.visita{color:var(--rose);font-weight:700;margin-top:6px;}
   .campos{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
   .campo{flex:1;min-width:130px;}
   .campo label{display:block;font-size:.66rem;font-weight:700;color:var(--ink-soft);margin-bottom:3px;}
@@ -229,11 +230,24 @@
         ? "Usado el " + fmtFecha(info.fecha)
         : "Disponible, sin usar todavía";
 
+      let visitaTxt = "";
+      if(usado){
+        if(asign.ultima_visita){
+          const dias = Math.floor((Date.now() - new Date(asign.ultima_visita).getTime()) / 86400000);
+          const cuando = dias <= 0 ? "hoy" : dias === 1 ? "ayer" : "hace " + dias + " días";
+          const alerta = dias >= 10 ? " ⚠️" : "";
+          visitaTxt = '<div class="meta visita">📲 Última vez que entró: ' + cuando + alerta + '</div>';
+        }else{
+          visitaTxt = '<div class="meta visita">📲 Aún no ha abierto el Generador ni el Control</div>';
+        }
+      }
+
       card.innerHTML = `
         <div class="card-top">
           <div>
             <div class="codigo">${c}</div>
             <div class="meta">${metaTxt}</div>
+            ${visitaTxt}
           </div>
           <span class="badge ${usado ? 'usado' : 'disp'}">${usado ? '🔴 USADO' : '🟢 DISPONIBLE'}</span>
         </div>
