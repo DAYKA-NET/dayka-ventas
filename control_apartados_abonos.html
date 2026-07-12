@@ -493,10 +493,10 @@
     <div class="brand-name"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAWCAYAAAA1vze2AAADS0lEQVR4nOWVT2xUVRTGv3PvnemUGZAwNLZYUwFpNJUQoRs0klQLCW7c2NkYTPAfRA1gKBQNyfOlqbSN1OJCRVOMGWPwuVaJkNQEEop1YfjXJqixNDVNOkNLZ950Zt6797joNNLptA4JrPw2Ny+59/zyfefc+4AyxY4jmS3FDCr3zF2J2RLzv+8xiNmRADDzR3ezHu/tZGsWOLeWoyU3Xr1qBYli2rvW/UJAi7Ps8QG9a8WPc06KHd61uN9SAJA639PgD/XezF3qegkA/Os9v/u/9Xw/t89xWuR/1SqVLTE7giim838e3yMV7fWzfpokzpCUw/5EPqk4+K3Oev2Tz6x5tYZedpktQWSbsiHcbylqsn3vSvcHMqTeNdDn2XCYDBOY1kDQSn9KD3LC1Mu64KAR+p1QQ9uNpUBFU2MJarJ97+KHNrvc6mW812mZfIIVf6Meb9vcl3ngYelih5+lJKeQ4LTviZy6lBjorCWyzWLDQP8CHEkU0zM/dL0pI+ojk84+KeuCddpnJ7Tp8PLtgx17ADx6tnHkPT61rtkN6NPh0IYqr2akD57ZNp3NbIzufD8FAETEpZ38fI0AwGRMNW4ZPzma/4tdU69TZhwAyPBKpam2MrG+Cm6+itPGpVgsryf0TTFtVkVzEKKoeMmesGUJsm0zE+88rTPeFvVI4JzW/JweM0fW7lADydUAhzPjM72hy17WG6Za+ctyUh2fPxhoba/m+GjDwUkCA0Ww+RCAYFlEtm1uH2//QtXIZgrRhB71H4pImkaer6cBEiyjrLgiDP3YiQ3LvorXhYY3Tbpfn3r6cBpEhVKLQGZ7wzSXa/rLrl3BMPflbulu5WLEY94KbaqJsDYiVeKnaODEga0VU9uS3tDJpw6OgUEgLIhswTQQEYMI7LTIyO62uDft76uoVEfyq/jKitajrwSigVQkLC80Phtut7eoqtjfYmAWwCUBJSEFe0yx7wyffCMQfu3oZ95t/1BFii7mPj42LDNm876NlZejjPXbh6bidtPbaViWKO7DknEtiK9wOaeOdbwVEdh5qDH0ya+rRf2LY+LT/c/vz806WBxQtuZdMrZUf+FdQ6F/90zc0iLZceQdVe/Pz+sO3XfA/1j/APwjlkAtn9cKAAAAAElFTkSuQmCC" alt="dayka_net" style="width:16px;height:16px;border-radius:4px;vertical-align:middle;margin-right:5px;">by dayka_net</div>
     <div class="negocio" id="negocioLine" onclick="editarNegocio()">🏪 Toca aquí para poner el nombre de tu negocio ✏️</div>
     <h1>Control de <span>Ventas</span> 💰</h1>
-    <p>Tus clientas, apartados, abonos y cobros. Todo en un solo lugar.</p>
+    <p>Tus clientes, apartados, abonos y cobros. Todo en un solo lugar.</p>
     <div class="stats">
       <div class="stat"><div class="num" id="stTotal">$0</div><div class="lbl">Por cobrar</div></div>
-      <div class="stat"><div class="num" id="stClientas">0</div><div class="lbl">Apartados activos</div></div>
+      <div class="stat"><div class="num" id="stClientes">0</div><div class="lbl">Apartados activos</div></div>
       <div class="stat"><div class="num" id="stCobrado">$0</div><div class="lbl">Cobrado total</div></div>
     </div>
   </div>
@@ -542,7 +542,7 @@
     <input type="number" id="fAnticipo" placeholder="Ej. 200 (puede ser 0)" min="0" inputmode="decimal">
     <label>Fecha del próximo cobro</label>
     <input type="date" id="fFecha">
-    <div class="hint">Las clientas con cobro de hoy o vencido aparecerán primero y en rojo. Con el botón 🔔 podrás poner la alarma en tu celular.</div>
+    <div class="hint">Los clientes con cobro de hoy o vencido aparecerán primero y en rojo. Con el botón 🔔 podrás poner la alarma en tu celular.</div>
     <div class="modal-btns">
       <button class="btn btn-cancel" onclick="cerrarModal()">Cancelar</button>
       <button class="btn btn-save" onclick="guardarClienta()">Guardar ✓</button>
@@ -886,7 +886,7 @@ function render(){
   if(filtro==="pendientes") items = datos.filter(c=>!c.liquidada);
   if(filtro==="liquidadas") items = datos.filter(c=>c.liquidada);
 
-  // buscador de clientas
+  // buscador de clientes
   const q = normalizar(document.getElementById("buscarClienta").value.trim());
   if(q){
     items = items.filter(c => normalizar(c.nombre + " " + c.producto).includes(q));
@@ -906,7 +906,7 @@ function render(){
   const activos = datos.filter(c=>!c.liquidada).length;
   const cobrado = datos.reduce((s,c)=>s + c.abonos.reduce((x,a)=>x+a.monto,0), 0);
   document.getElementById("stTotal").textContent = fmt(porCobrar);
-  document.getElementById("stClientas").textContent = activos;
+  document.getElementById("stClientes").textContent = activos;
   document.getElementById("stCobrado").textContent = fmt(cobrado);
 
   lista.innerHTML = "";
