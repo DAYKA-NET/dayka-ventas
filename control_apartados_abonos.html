@@ -529,7 +529,7 @@
 <div class="overlay" id="overlay">
   <div class="modal">
     <h2 id="modalTitulo">Nuevo apartado</h2>
-    <label>Nombre del cliente *</label>
+    <label>Nombre de el cliente *</label>
     <input type="text" id="fNombre" placeholder="Ej. Laura García">
     <label>WhatsApp (10 dígitos)</label>
     <input type="tel" id="fTel" placeholder="Ej. 4421234567" maxlength="10">
@@ -542,7 +542,7 @@
     <input type="number" id="fAnticipo" placeholder="Ej. 200 (puede ser 0)" min="0" inputmode="decimal">
     <label>Fecha del próximo cobro</label>
     <input type="date" id="fFecha">
-    <div class="hint">Los clientes con cobro de hoy o vencido aparecerán primero y en rojo. Con el botón 🔔 podrás poner la alarma en tu celular.</div>
+    <div class="hint">Las clientes con cobro de hoy o vencido aparecerán primero y en rojo. Con el botón 🔔 podrás poner la alarma en tu celular.</div>
     <div class="modal-btns">
       <button class="btn btn-cancel" onclick="cerrarModal()">Cancelar</button>
       <button class="btn btn-save" onclick="guardarCliente()">Guardar ✓</button>
@@ -823,7 +823,7 @@ function alarmaCalendario(id){
   const c = datos.find(x=>x.id===id);
   if(!c) return;
   if(!c.fechaCobro){
-    alert("Primero ponle fecha de cobro a este cliente con el botón 📅 😊");
+    alert("Primero ponle fecha de cobro a esta cliente con el botón 📅 😊");
     return;
   }
   const saldo = saldoDe(c);
@@ -862,7 +862,7 @@ function cobrarWA(id){
   const c = datos.find(x=>x.id===id);
   if(!c) return;
   if(!c.tel || c.tel.length !== 10){
-    alert("Este cliente no tiene WhatsApp registrado con 10 dígitos. Puedes eliminarla y volverla a registrar con su número 😊");
+    alert("Esta cliente no tiene WhatsApp registrado con 10 dígitos. Puedes eliminarla y volverla a registrar con su número 😊");
     return;
   }
   const saldo = saldoDe(c);
@@ -912,7 +912,7 @@ function render(){
   lista.innerHTML = "";
   if(items.length===0){
     if(q){
-      lista.innerHTML = '<div class="empty">No encontré ningún cliente con "<b>'+esc(document.getElementById("buscarCliente").value.trim())+'</b>" 😅<br>Revisa que esté bien escrito o prueba con el apellido o el producto.</div>';
+      lista.innerHTML = '<div class="empty">No encontré ningun cliente con "<b>'+esc(document.getElementById("buscarCliente").value.trim())+'</b>" 😅<br>Revisa que esté bien escrito o prueba con el apellido o el producto.</div>';
     }else{
       lista.innerHTML = '<div class="empty">Aún no hay nada por aquí 😊<br>Toca <b>+ Nuevo cliente</b> para registrar tu primer apartado.<br><br>💡 Tip: registra el apartado en el momento en que el cliente te da su anticipo, y nunca más se te olvidará una cuenta.</div>';
     }

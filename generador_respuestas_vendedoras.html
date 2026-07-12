@@ -355,7 +355,7 @@ const SECCIONES = [
   {id:"objeciones", nombre:"💭 Objeciones", nota:"Cuando el cliente pone un pero, no la contradigas: dale la razón primero y luego muéstrale una salida."},
   {id:"cierre", nombre:"✅ Cierre", nota:"El cierre no es presionar, es ayudarla a decidir. Ofrece siempre un siguiente paso fácil."},
   {id:"seguimiento", nombre:"🔄 Seguimiento", nota:"La venta muchas veces está en el segundo o tercer mensaje. Da seguimiento sin sonar desesperada."},
-  {id:"cobranza", nombre:"💰 Cobranza", nota:"Cobrar con amabilidad y a tiempo cuida tu dinero Y tu relación con la cliente."},
+  {id:"cobranza", nombre:"💰 Cobranza", nota:"Cobrar con amabilidad y a tiempo cuida tu dinero Y tu relación con el cliente."},
   {id:"entregas", nombre:"📦 Entregas", nota:"Una entrega bien coordinada evita vueltas en balde y deja una gran impresión."},
   {id:"reactivar", nombre:"💕 Reactivar", nota:"Tus clientes anteriores son tu mina de oro: ya te conocen y ya te compraron una vez."}
 ];
@@ -388,8 +388,8 @@ const MENSAJES = [
   /* ================= COBRANZA ================= */
   {s:"cobranza", t:"Recordatorio de abono (amable)", m:"Hola {nombre} 😊 ¿Cómo va tu semana? Te escribo para recordarte con cariño que esta semana toca tu abonito. Cuando puedas hacerlo me avisas y te confirmo de inmediato 🙌"},
   {s:"cobranza", t:"Recordatorio un día antes", m:"Hola {nombre} 🤗 Recordatorio amistoso: mañana es la fecha de tu pago. Te lo digo con tiempo para que lo tengas presente y no se te atraviese nada. ¡Gracias por ser tan cumplida! 💕"},
-  {s:"cobranza", t:"Cliente atrasado (con empatía)", m:"Hola {nombre} 😊 Noté que se pasó la fecha de tu abono y quería preguntarte si todo está bien. Si se te complicó esta semana, dime y buscamos una fecha que sí te acomode. Lo importante es no perdernos 🤗"},
-  {s:"cobranza", t:"Cliente muy atrasado (firme pero amable)", m:"Hola {nombre}, espero estés muy bien 😊 Te escribo porque tu pago lleva ya varios días pendiente y necesito que me digas hoy mismo cuándo puedes cubrirlo, aunque sea en partes. Yo también tengo compromisos que cumplir y sé que me entiendes. Quedo pendiente de tu respuesta 🙏"},
+  {s:"cobranza", t:"Cliente atrasada (con empatía)", m:"Hola {nombre} 😊 Noté que se pasó la fecha de tu abono y quería preguntarte si todo está bien. Si se te complicó esta semana, dime y buscamos una fecha que sí te acomode. Lo importante es no perdernos 🤗"},
+  {s:"cobranza", t:"Cliente muy atrasada (firme pero amable)", m:"Hola {nombre}, espero estés muy bien 😊 Te escribo porque tu pago lleva ya varios días pendiente y necesito que me digas hoy mismo cuándo puedes cubrirlo, aunque sea en partes. Yo también tengo compromisos que cumplir y sé que me entiendes. Quedo pendiente de tu respuesta 🙏"},
   {s:"cobranza", t:"Confirmar pago recibido", m:"¡Recibido, {nombre}! ✅ Muchísimas gracias por tu pago tan puntual. Ya quedó registrado tu abono. Gracias por tu confianza en {tienda}, clientes como tú dan gusto 💕"},
   {s:"cobranza", t:"Recordar saldo para liquidar", m:"Hola {nombre} 😊 Te comparto tu estado de cuenta rapidito: ya casi liquidas 🎉 Te falta solo un abono más. Cuando gustes lo cubres y tu pedido queda 100% tuyo. ¡Felicidades por lo cumplida!"},
 
@@ -402,7 +402,7 @@ const MENSAJES = [
   {s:"entregas", t:"Después de entregar (¿te gustó?)", m:"Hola {nombre} 😊 ¿Cómo te fue con tu pedido? ¿Sí era lo que esperabas? Me encanta saber que mis clientes quedan contentas, y si algo no te convenció, también dímelo con confianza 🤗"},
 
   /* ================= REACTIVAR ================= */
-  {s:"reactivar", t:"Llegó catálogo / temporada nueva", m:"¡Hola {nombre}! 😍 Te tengo noticia: ya llegó lo nuevo a {tienda} y viene hermoso. Como eres de mis mejores clientes, quise avisarte antes que a nadie. ¿Te lo mando para que le eches un ojito?"},
+  {s:"reactivar", t:"Llegó catálogo / temporada nueva", m:"¡Hola {nombre}! 😍 Te tengo noticia: ya llegó lo nuevo a {tienda} y viene hermoso. Como eres de mis clientes consentidas, quise avisarte antes que a nadie. ¿Te lo mando para que le eches un ojito?"},
   {s:"reactivar", t:"“Pensé en ti” (producto específico)", m:"Hola {nombre} 🤗 ¿Cómo estás? Estaba viendo lo nuevo que llegó y vi algo que gritaba tu nombre 😄 En cuanto lo vi dije: esto es para {nombre}. ¿Te mando la foto?"},
   {s:"reactivar", t:"Promoción exclusiva para clientes", m:"Hola {nombre} 💕 Tengo una promo de {tienda} que solo le estoy mandando a mis clientes de confianza, no es pública. Por ser tú, tienes descuento especial esta semana. ¿Quieres que te pase los detalles?"},
   {s:"reactivar", t:"Cliente que no compra hace meses", m:"¡Hola {nombre}! 😊 ¿Cómo has estado? Hace rato que no platicamos y me acordé de ti. Han llegado cosas nuevas muy bonitas y me encantaría enseñártelas, sin compromiso. ¿Te mando unas fotos?"},
@@ -548,7 +548,7 @@ function render(){
 function enviarWhatsApp(texto){
   const tel = telefonoActivo();
   if(!tel){
-    alert("Para enviar directo, elige un cliente registrado 📇 o escribe su WhatsApp de 10 dígitos 📱 arriba 😊\n\nMientras tanto, usa 'Copiar' y pégalo tú mismo.");
+    alert("Para enviar directo, elige un cliente registrada 📇 o escribe su WhatsApp de 10 dígitos 📱 arriba 😊\n\nMientras tanto, usa 'Copiar' y pégalo tú misma.");
     return;
   }
   window.open("https://wa.me/52" + tel + "?text=" + encodeURIComponent(texto), "_blank");
